@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle, #1a1a1a, #000);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fireworks-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .heart {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    animation: explode 3s ease-in-out forwards;
+  }
+  
+  @keyframes explode {
+    0% {
+      opacity: 1;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+      width: 100px;
+      height: 100px;
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+  }
+  
+  .heart::before {
+    top: -50%;
+  }
+  
+  .heart::after {
+    left: 50%;
+    transform: rotate(45deg);
+  }
+  
